@@ -1,8 +1,3 @@
-// Get machine cores
-
-const coresNum = document.getElementById("cores");
-coresNum.innerText = `CPU Cores: ${navigator.hardwareConcurrency}`;
-
 // Move windows
 
 let mouseMove = false;
@@ -108,24 +103,69 @@ function toggleTabs(project) {
 const clock = document.getElementById("clock");
 
 setInterval(() => {
-    clock.innerText = new Date().toLocaleTimeString();
+    clock.innerText = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
 }, 1000)
 
-// Opening windows 
+// Toggling windows
 
-function openWindow(e) {
+function toggleWindow(e) {
     w = document.getElementById(e);
-    wButton = e.split("-").reverse().pop() + "-button"
-    // window.classList.add("active");
 
-    w.style.display = "block";
+    wButton = (e.split("-").reverse().pop() + "-button");
+
+
+    if (w.style.display == "none") {
+        w.style.display = "block";
+        // wButton.classList.add("active");
+        w.className += " active";
+    } else {
+        w.style.display = "none";
+        // wButton.classList.remove("active");
+
+    }
 
 }
 
-// Closing windows
+// Maximizing windows
 
-function closeWindow(e) {
+let maximized = false;
+let tWidth, tHeight, tFont, tZIndex;
+let temp;
+
+const resolutions = new Map();
+
+function maximizeWindow(e) {
     w = document.getElementById(e);
+    const container = document.getElementById((e.split("-").reverse().pop() + "-container"));
 
-    w.style.display = "none";
+    if (!maximized) {
+        resolutions.set(e + "width", w.style.width);
+        resolutions.set(e + "height", w.style.height);
+        resolutions.set(e + "font", w.style.fontSize);
+        resolutions.set(e + "zIndex", w.style.zIndex);
+
+        w.style.width = "100vw";
+        w.style.height = "100vh";
+
+        w.style.fontSize = "240%";
+
+        container.style.zIndex = 100;
+
+        maximized = true;
+        temp = e;
+    } else if (e == temp) {
+        w.style.width = resolutions.get(e + "width");
+        w.style.height = resolutions.get(e + "height");
+        w.style.fontSize = resolutions.get(e + "font");
+        container.style.zIndex = resolutions.get(e + "zIndex");
+        maximized = false;
+    }
+}
+
+function windowOnTop(e) {
+    w = document.getElementById(e);
+    w.style.zIndex += 5;
 }
