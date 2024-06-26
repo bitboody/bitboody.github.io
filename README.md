@@ -11,4 +11,4 @@ TODO:
 - [X] Moving windows
 - [ ] Icons on windows
 - [ ] Double click icons
-- [ ] Guesbook
+- [ ] Guestbook
