@@ -145,14 +145,11 @@ function maximizeWindow(e) {
         resolutions.set(e + "width", w.style.width);
         resolutions.set(e + "height", w.style.height);
         resolutions.set(e + "font", w.style.fontSize);
-        resolutions.set(e + "zIndex", w.style.zIndex);
 
         w.style.width = "100vw";
         w.style.height = "100vh";
 
         w.style.fontSize = "240%";
-
-        container.style.zIndex = 100;
 
         maximized = true;
         temp = e;
@@ -160,12 +157,30 @@ function maximizeWindow(e) {
         w.style.width = resolutions.get(e + "width");
         w.style.height = resolutions.get(e + "height");
         w.style.fontSize = resolutions.get(e + "font");
-        container.style.zIndex = resolutions.get(e + "zIndex");
         maximized = false;
     }
 }
 
-function windowOnTop(e) {
-    w = document.getElementById(e);
-    w.style.zIndex += 5;
-}
+// Last window on top
+
+const projects = document.getElementById("projects-container");
+const cmd = document.getElementById("cmd-container");
+const network = document.getElementById("network-container");
+
+projects.addEventListener("mousedown", () => {
+    projects.style.zIndex = 100;
+    cmd.style.zIndex = 2;
+    network.style.zIndex = 1;
+});
+
+cmd.addEventListener("mousedown", () => {
+    cmd.style.zIndex = 100;
+    projects.style.zIndex = 2;
+    network.style.zIndex = 1;
+});
+
+network.addEventListener("mousedown", () => {
+    network.style.zIndex = 100;
+    projects.style.zIndex = 2;
+    cmd.style.zIndex = 1;
+});
