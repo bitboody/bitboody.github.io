@@ -9,6 +9,6 @@ Preview:
 
 TODO:
 - [X] Moving windows
-- [ ] Icons on windows
+- [X] Icons on windows
 - [ ] Double click icons
 - [ ] Guestbook
