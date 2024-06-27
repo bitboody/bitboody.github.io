@@ -187,9 +187,9 @@ network.addEventListener("mousedown", () => {
 
 // Double click icon
 
-let clickTimeout, clickCount = 0;
+let clickTimeout, tempIcon, clickCount = 0;
 
-function doubleClick(e) {
+function doubleClick(e, link) {
     const icon = document.getElementById(e);
 
     if (clickTimeout) {
@@ -200,16 +200,18 @@ function doubleClick(e) {
     icon.style.backgroundColor = "#99D1FF99";
     icon.style.borderColor = "#99D1FF";
     clickCount++;
-
-    if (clickCount > 1) {
-        window.open("https://github.com/brplcc")
-        icon.style.backgroundColor = "#99D1FF00";
-        icon.style.borderColor = "#99D1FF00";
-        clickCount = 0;
-        return;
+    if (tempIcon == e) {
+        if (clickCount > 1) {
+            window.open(link);
+            icon.style.backgroundColor = "#99D1FF00";
+            icon.style.borderColor = "#99D1FF00";
+            clickCount = 0;
+            return;
+        }
     }
 
     clickTimeout = setTimeout(() => {
         clickCount = 0;
     }, 500)
+    tempIcon = e;
 }
