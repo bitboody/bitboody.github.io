@@ -10,5 +10,5 @@ Preview:
 TODO:
 - [X] Moving windows
 - [X] Icons on windows
-- [ ] Double click icons
+- [X] Double click icons
 - [ ] Guestbook

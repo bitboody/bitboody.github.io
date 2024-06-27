@@ -184,3 +184,32 @@ network.addEventListener("mousedown", () => {
     projects.style.zIndex = 2;
     cmd.style.zIndex = 1;
 });
+
+// Double click icon
+
+let clickTimeout, clickCount = 0;
+
+function doubleClick(e) {
+    const icon = document.getElementById(e);
+
+    if (clickTimeout) {
+        clearTimeout(clickTimeout);
+        clickTimeout = null;
+    }
+
+    icon.style.backgroundColor = "#99D1FF99";
+    icon.style.borderColor = "#99D1FF";
+    clickCount++;
+
+    if (clickCount > 1) {
+        window.open("https://github.com/brplcc")
+        icon.style.backgroundColor = "#99D1FF00";
+        icon.style.borderColor = "#99D1FF00";
+        clickCount = 0;
+        return;
+    }
+
+    clickTimeout = setTimeout(() => {
+        clickCount = 0;
+    }, 500)
+}
