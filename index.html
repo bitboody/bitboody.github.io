@@ -17,6 +17,11 @@
         <div class="icon-name">My Computer</div>
     </div>
 
+    <div class="icon ie" id="browser" onclick="doubleClick('browser', 'toggle')">
+        <img src="./assets/images/ie.png">
+        <div class="icon-name">Internet Explorer</div>
+    </div>
+
     <div class="move" id="network-container">
         <div class="window" id="network-window" style="width: 350px; height: 110px;">
             <div class="title-bar">
@@ -124,6 +129,25 @@
         </div>
     </div>
 
+    <div class="move" id="browser-container">
+        <div class="window" id="browser-window" style="width: 810px; height: 635px; display: none;">
+            <div class="title-bar">
+                <div class="title-bar-text"><img src="./assets/images/ie.png" width="15px"> Browser</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize" onclick="toggleWindow('browser-window')"></button>
+                    <button aria-label="Close" onclick="toggleWindow('browser-window')"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                <div>
+                    <object type="text/html" data="https://www.google.com/webhp?igu=1" width="800px" height="600px">
+                    </object>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="taskbar">
         <div class="start-button"><img src="./assets/images/logo.png"> start</div>
         <div class="opened-tabs">
@@ -134,6 +158,9 @@
             <div class="open-tab" id="cmd-button" onclick="toggleWindow('cmd-window')"><img
                     src="./assets/images/cmd.png">
                 CMD</div>
+            <div class="open-tab" id="browser-button" onclick="toggleWindow('browser-window')"><img
+                    src="./assets/images/ie.png">
+                Internet Explorer</div>
         </div>
         <div class="time" id="clock">00:00 PM</div>
     </div>

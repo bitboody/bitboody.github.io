@@ -4,6 +4,15 @@
   padding: 0px;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  outline: none;
+}
+
+::-moz-selection {
+  background-color: transparent;
+}
+
+::selection {
+  background-color: transparent;
 }
 
 body {
@@ -18,11 +27,17 @@ body {
 
 .icon {
   color: white;
-  width: 85px;
+  width: 80px;
   cursor: pointer;
   margin: 8px 0;
   padding: 5px;
   border: 1px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
@@ -31,9 +46,6 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   background-color: #99d1ff00;
   border-color: #99d1ff00;
-}
-
-.icon {
 }
 
 .move {
@@ -65,11 +77,27 @@ body {
   -webkit-transform: translate(-63%, -76%);
   transform: translate(-63%, -76%);
   z-index: 1;
-
 }
 
-.window .window-body {
-  padding: 0 10px;
+#browser-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+#network-container .window .window-body {
+  padding: 0 20px;
+}
+
+#browser-container .window-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 300px; */
 }
 
 .taskbar {

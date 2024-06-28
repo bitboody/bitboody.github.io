@@ -1,5 +1,4 @@
 // Move windows
-
 let mouseMove = false;
 const code = 112;
 
@@ -57,7 +56,6 @@ function dragElement(elmnt) {
 }
 
 // Change tabs
-
 function toggleTabs(project) {
     const btn1 = document.getElementById("projects").querySelector("#btn1");
     const btn2 = document.getElementById("projects").querySelector("#btn2");
@@ -99,7 +97,6 @@ function toggleTabs(project) {
 }
 
 // Dynamic clock
-
 const clock = document.getElementById("clock");
 
 setInterval(() => {
@@ -110,7 +107,6 @@ setInterval(() => {
 }, 1000)
 
 // Toggling windows
-
 function toggleWindow(e) {
     w = document.getElementById(e);
 
@@ -130,7 +126,6 @@ function toggleWindow(e) {
 }
 
 // Maximizing windows
-
 let maximized = false;
 let tWidth, tHeight, tFont, tZIndex;
 let temp;
@@ -162,31 +157,40 @@ function maximizeWindow(e) {
 }
 
 // Last window on top
-
 const projects = document.getElementById("projects-container");
 const cmd = document.getElementById("cmd-container");
 const network = document.getElementById("network-container");
+const browser = document.getElementById("browser-container");
 
 projects.addEventListener("mousedown", () => {
     projects.style.zIndex = 100;
-    cmd.style.zIndex = 2;
-    network.style.zIndex = 1;
+    cmd.style.zIndex = 3;
+    network.style.zIndex = 2;
+    browser.style.zIndex = 1;
 });
 
 cmd.addEventListener("mousedown", () => {
     cmd.style.zIndex = 100;
-    projects.style.zIndex = 2;
-    network.style.zIndex = 1;
+    projects.style.zIndex = 3;
+    network.style.zIndex = 2;
+    browser.style.zIndex = 1;
 });
 
 network.addEventListener("mousedown", () => {
     network.style.zIndex = 100;
-    projects.style.zIndex = 2;
-    cmd.style.zIndex = 1;
+    projects.style.zIndex = 3;
+    cmd.style.zIndex = 3;
+    browser.style.zIndex = 1;
+});
+
+browser.addEventListener("mousedown", () => {
+    network.style.zIndex = 2;
+    projects.style.zIndex = 1;
+    cmd.style.zIndex = 3;
+    browser.style.zIndex = 100;
 });
 
 // Double click icon
-
 let clickTimeout, tempIcon, clickCount = 0;
 
 function doubleClick(e, link) {
@@ -202,7 +206,11 @@ function doubleClick(e, link) {
     clickCount++;
     if (tempIcon == e) {
         if (clickCount > 1) {
-            window.open(link);
+            if (link != "toggle") {
+                window.open(link);
+            } else {
+                toggleWindow(e+ "-window");
+            }
             icon.style.backgroundColor = "#99D1FF00";
             icon.style.borderColor = "#99D1FF00";
             clickCount = 0;
