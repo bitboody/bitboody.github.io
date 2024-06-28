@@ -5,14 +5,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   outline: none;
-}
-
-::-moz-selection {
-  background-color: transparent;
-}
-
-::selection {
-  background-color: transparent;
+  user-select: none;
 }
 
 body {
@@ -22,7 +15,7 @@ body {
   background-size: fill;
   background-repeat: no-repeat;
   background-color: #ECE9D8;
-  height: 100%;
+  min-height: 100px;
 }
 
 .icon {
@@ -191,4 +184,39 @@ body {
   text-transform: uppercase;
   position: fixed;
   right: 0;
+}
+
+@media (max-width:825px) {
+  .taskbar .open-tab {
+    width: 100px;
+  }
+}
+
+@media (max-width:625px) {
+  .taskbar .open-tab {
+    color: transparent;
+    width: 70px;
+  }
+}
+
+@media (max-width:505px) {
+  .taskbar .open-tab {
+    width: 50px;
+  }
+}
+
+@media (max-width:360px) {
+  .taskbar .open-tab {
+    width: 35px;
+  }
+}
+
+@media (max-width:345px) {
+  .taskbar .start-button {
+    display: none;
+  }
+
+  .taskbar .open-tab {
+    width: 35px;
+  }
 }

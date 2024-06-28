@@ -209,7 +209,7 @@ function doubleClick(e, link) {
             if (link != "toggle") {
                 window.open(link);
             } else {
-                toggleWindow(e+ "-window");
+                toggleWindow(e + "-window");
             }
             icon.style.backgroundColor = "#99D1FF00";
             icon.style.borderColor = "#99D1FF00";
@@ -222,4 +222,11 @@ function doubleClick(e, link) {
         clickCount = 0;
     }, 500)
     tempIcon = e;
+}
+
+// Minimum screen width alert
+const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+if (width < 399) {
+    window.alert("Warning:\nThis website runs best on devices that have a minimum screen width of 399px. This might not work too well for your device.\n\nIt is recommended you open this website on your computer for full functionality.");
 }
