@@ -12,7 +12,7 @@ body {
   box-sizing: border-box;
   overflow: hidden !important;
   background: url(../assets/images/bliss.jpg);
-  background-size: fill;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: #ECE9D8;
   min-height: 100px;
