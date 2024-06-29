@@ -5,7 +5,8 @@ My very own website. Designed to (somewhat) mimic The looks of Windows XP.
 Credit for most of the taskbar code goes to: <a href="https://github.com/faisalAkhtar/">faisalAkhtar</a>
 
 Preview:
-<img src="https://i.ibb.co/wKYxjYc/firefox-g-VIN8uy0-Nr.jpg">
+<br>
+<img src="https://i.ibb.co/DwRkxGf/firefox-O1-Efb7-WEtb.jpg">
 
 TODO:
 - [X] Moving windows
