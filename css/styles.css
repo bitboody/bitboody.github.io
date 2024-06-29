@@ -94,11 +94,15 @@ html {
 }
 
 #browser-container .window-body {
+  margin: 0;
+  padding: 0;
+}
+
+#browser-container .window-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 300px; */
 }
 
 .taskbar {
