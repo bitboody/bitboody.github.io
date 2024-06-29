@@ -20,7 +20,11 @@ body {
   background-size: cover;
 }
 
-html {}
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
 
 .icon {
   color: white;
@@ -100,7 +104,6 @@ html {}
 .taskbar {
   background-color: #245EDC;
   background: linear-gradient(to bottom, #245EDC 0%, #3f8cf3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%) center/cover no-repeat;
-  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;

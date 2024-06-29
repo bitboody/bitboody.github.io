@@ -135,8 +135,10 @@ const resolutions = new Map();
 function maximizeWindow(e) {
     w = document.getElementById(e);
     const container = document.getElementById((e.split("-").reverse().pop() + "-container"));
+    const body = document.getElementById((e.split("-").reverse().pop() + "-body"));
 
     if (!maximized) {
+        console.log(e);
         resolutions.set(e + "width", w.style.width);
         resolutions.set(e + "height", w.style.height);
         resolutions.set(e + "font", w.style.fontSize);
@@ -146,6 +148,16 @@ function maximizeWindow(e) {
 
         w.style.fontSize = "240%";
 
+        if (e == "browser-window") {
+            const body = document.getElementById((e.split("-").reverse().pop() + "-body"));
+
+            resolutions.set(body + "width", body.style.width);
+            resolutions.set(body + "height", body.style.height);
+
+            body.style.width = "100vw";
+            body.style.height = "calc(100vh - 55px)";
+        }
+
         maximized = true;
         temp = e;
     } else if (e == temp) {
@@ -153,6 +165,11 @@ function maximizeWindow(e) {
         w.style.height = resolutions.get(e + "height");
         w.style.fontSize = resolutions.get(e + "font");
         maximized = false;
+
+        if (e == "browser-window") {
+            body.style.width = body.style.width = resolutions.get(body + "width");
+            body.style.height = body.style.width = resolutions.get(body + "width");
+        }
     }
 }
 
