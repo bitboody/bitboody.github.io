@@ -1,13 +1,13 @@
 // Move windows
 let mouseMove = false;
-const code = 112;
+const code = 77;
 
 onkeydown = (e) => {
-    if (e.keyCode == code && !mouseMove) {
+    if (e.ctrlKey && e.keyCode == code && !mouseMove) {
         mouseMove = true;
     }
 
-    else if (e.keyCode == code && mouseMove) {
+    else if (e.ctrlKey && e.keyCode == code && mouseMove) {
         mouseMove = false;
     }
 }
