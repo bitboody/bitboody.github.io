@@ -179,33 +179,21 @@ const cmd = document.getElementById("cmd-container");
 const network = document.getElementById("network-container");
 const browser = document.getElementById("browser-container");
 
-projects.addEventListener("mousedown", () => {
-    projects.style.zIndex = 100;
-    cmd.style.zIndex = 3;
-    network.style.zIndex = 2;
-    browser.style.zIndex = 1;
-});
+let baseZIndex = 1;
+let tempElement;
 
-cmd.addEventListener("mousedown", () => {
-    cmd.style.zIndex = 100;
-    projects.style.zIndex = 3;
-    network.style.zIndex = 2;
-    browser.style.zIndex = 1;
-});
+function windowOnTop(e) {
+    if (e != tempElement) {
+        baseZIndex++;
+        e.style.zIndex = baseZIndex;
+    }
+    tempElement = e;
+}
 
-network.addEventListener("mousedown", () => {
-    network.style.zIndex = 100;
-    projects.style.zIndex = 3;
-    cmd.style.zIndex = 3;
-    browser.style.zIndex = 1;
-});
-
-browser.addEventListener("mousedown", () => {
-    network.style.zIndex = 2;
-    projects.style.zIndex = 1;
-    cmd.style.zIndex = 3;
-    browser.style.zIndex = 100;
-});
+projects.addEventListener("mousedown", () => windowOnTop(projects));
+cmd.addEventListener("mousedown", () => windowOnTop(cmd));
+network.addEventListener("mousedown", () => windowOnTop(network));
+browser.addEventListener("mousedown", () => windowOnTop(browser));
 
 // Double click icon
 let clickTimeout, tempIcon, clickCount = 0;
