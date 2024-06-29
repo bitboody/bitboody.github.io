@@ -71,6 +71,10 @@ html {
   z-index: 2;
 }
 
+#network-container .window .window-body {
+  padding: 0 20px;
+}
+
 #projects-container {
   position: absolute;
   left: 63%;
@@ -87,10 +91,6 @@ html {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 3;
-}
-
-#network-container .window .window-body {
-  padding: 0 20px;
 }
 
 #browser-container .window-body {
