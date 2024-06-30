@@ -59,7 +59,6 @@ html {
   top: 62%;
   -webkit-transform: translate(-22%, -62%);
   transform: translate(-22%, -62%);
-  z-index: 3;
 }
 
 #network-container {
@@ -68,7 +67,6 @@ html {
   top: 24%;
   -webkit-transform: translate(-33%, -24%);
   transform: translate(-33%, -24%);
-  z-index: 2;
 }
 
 #network-container .window .window-body {
@@ -81,7 +79,6 @@ html {
   top: 76%;
   -webkit-transform: translate(-63%, -76%);
   transform: translate(-63%, -76%);
-  z-index: 1;
 }
 
 #browser-container {
@@ -90,7 +87,6 @@ html {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  z-index: 3;
 }
 
 #browser-container .window-body {
