@@ -69,8 +69,14 @@ html {
   transform: translate(-33%, -24%);
 }
 
-#network-container .window .window-body {
+#network-container .window-body {
   padding: 0 20px;
+}
+
+#network-container .window-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #projects-container {
