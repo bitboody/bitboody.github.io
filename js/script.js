@@ -231,3 +231,10 @@ const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 if (width < 399) {
     window.alert("Warning:\nThis website runs best on devices that have a minimum screen width of 399px. This might not work too well for your device.\n\nIt is recommended you open this website on your computer for full functionality.");
 }
+
+// Loading screen
+window.onload = () => {
+    setTimeout(() => {
+        document.getElementById("loading").style.display = 'none';
+    }, 1000)
+};
