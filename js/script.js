@@ -110,17 +110,11 @@ setInterval(() => {
 function toggleWindow(e) {
     w = document.getElementById(e);
 
-    wButton = (e.split("-").reverse().pop() + "-button");
-
-
     if (w.style.display == "none") {
         w.style.display = "block";
-        // wButton.classList.add("active");
         w.className += " active";
     } else {
         w.style.display = "none";
-        // wButton.classList.remove("active");
-
     }
 
 }
