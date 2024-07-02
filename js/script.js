@@ -191,7 +191,7 @@ browser.addEventListener("mousedown", () => windowOnTop(browser));
 
 // Double click icon
 let clickTimeout, tempIcon, clickCount = 0;
-const clickSound = new Audio('../assets/audio/click.mp3');
+const clickSound = new Audio('assets/audio/click.mp3');
 
 function doubleClick(e, link) {
     const icon = document.getElementById(e);
