@@ -238,6 +238,6 @@ window.onload = () => {
         document.getElementById("loading").style.display = 'none';
         setTimeout(() => {
             document.getElementById("welcome").style.display = 'none';
-        }, 2500)
+        }, 1000)
     }, 1000)
 };
