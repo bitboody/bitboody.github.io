@@ -236,5 +236,8 @@ if (width < 399) {
 window.onload = () => {
     setTimeout(() => {
         document.getElementById("loading").style.display = 'none';
+        setTimeout(() => {
+            document.getElementById("welcome").style.display = 'none';
+        }, 2500)
     }, 1000)
 };
