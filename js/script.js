@@ -233,11 +233,11 @@ if (width < 399) {
 }
 
 // Loading screen
-window.onload = () => {
-    setTimeout(() => {
-        document.getElementById("loading").style.display = 'none';
-        setTimeout(() => {
-            document.getElementById("welcome").style.display = 'none';
-        }, 1000)
-    }, 1000)
-};
+// window.onload = () => {
+//     setTimeout(() => {
+//         document.getElementById("loading").style.display = 'none';
+//         setTimeout(() => {
+//             document.getElementById("welcome").style.display = 'none';
+//         }, 1000)
+//     }, 1000)
+// };
