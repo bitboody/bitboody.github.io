@@ -12,17 +12,17 @@
 
 <body>
     <div class="icon my-computer" id="my-computer" onclick="doubleClick('my-computer', 'https://github.com/brplcc')">
-        <img src="./assets/images/computer.png">
+        <img src="./assets/images/computer.png" alt="computer icon">
         <div class="icon-name">My Computer</div>
     </div>
 
     <div class="icon ie" id="browser" onclick="doubleClick('browser', 'toggle')">
-        <img src="./assets/images/ie.png">
+        <img src="./assets/images/ie.png" alt="internet explorer icon">
         <div class="icon-name">Internet Explorer</div>
     </div>
 
     <div class="move" id="network-container">
-        <div class="window" id="network-window" style="width: 350px; height: 150px;">
+        <div class="window" id="network-window" style="width: 350px; height: 270px;">
             <div class="title-bar">
                 <div class="title-bar-text"><img src="./assets/images/network.png" width="15px"> Network</div>
                 <div class="title-bar-controls">
@@ -38,7 +38,16 @@
                     <li><a href="https://instagram.com/boody.asm">Instagram</a></li>
                     <li>Discord tag: @brplc</li>
                 </ul>
-                <img src="./assets/images/sending.gif" width="250px">
+
+                <br>
+
+                <div>
+                    <p id="activity-div-title">Last done on Discord:</p>
+                    <img id="activity-img" width="100px">
+                    <p id="activity-title"></p>
+                    <p id="activity-state"></p>
+                </div>
+
             </div>
         </div>
     </div>

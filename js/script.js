@@ -20,10 +20,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const activityTitle = document.getElementById("activity-title");
+const activityDivTitle = document.getElementById("activity-div-title");
+const activityState = document.getElementById("activity-state");
+const activityImg = document.getElementById("activity-img");
+
 async function getData() {
   const querySnapshot = await getDocs(collection(db, "activity"));
   querySnapshot.forEach((doc) => {
-    console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+    const activity = doc.data();
+    if (activity.title == "Spotify") {
+      activityDivTitle.innerText = "Last listened to:";
+      activityState.innerText = `${activity.state} - ${activity.details}`;
+    } else if (activity.title == "Visual Studio Code") {
+      activityDivTitle.innerText = "Last done:";
+      activityTitle.innerText = activity.title;
+      activityState.innerText = (activity.state + " - " + activity.details).replace("Workspace: ", "");
+    } else {
+      activityDivTitle.innerText = "Last played:";
+      activityTitle.innerText = activity.title;
+      activityState.innerText = activity.state + " - " + activity.details;
+    }
+    activityImg.src = activity.img;
   });
 }
 

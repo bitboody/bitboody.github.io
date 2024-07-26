@@ -10,7 +10,7 @@
 
 body {
   overflow: hidden !important;
-  background-color: #ECE9D8;
+  background-color: #ece9d8;
   min-height: 100px;
   background: url(../assets/images/bliss.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -80,6 +80,16 @@ html {
   margin-right: auto;
 }
 
+#network-container .window-body div {
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
+}
+
+#network-container .window-body div img {
+  padding: 5px 0 5px 0;
+}
+
 #projects-container {
   position: absolute;
   left: 63%;
@@ -109,8 +119,16 @@ html {
 }
 
 .taskbar {
-  background-color: #245EDC;
-  background: linear-gradient(to bottom, #245EDC 0%, #3f8cf3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%) center/cover no-repeat;
+  background-color: #245edc;
+  background: linear-gradient(
+      to bottom,
+      #245edc 0%,
+      #3f8cf3 9%,
+      #245edc 18%,
+      #245edc 92%,
+      #1941a5 100%
+    )
+    center/cover no-repeat;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -127,7 +145,8 @@ html {
   line-height: 22px;
   font-weight: bold;
   font-style: italic;
-  background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+  background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover
+    no-repeat;
   box-shadow: 0px 5px 10px #79ce71 inset, 4px 0 8px #3f8cf3;
   padding: 2px 25px 6px 10px;
   text-shadow: 1px 1px 3px #222;
@@ -153,9 +172,9 @@ html {
   height: 26px;
   margin: 3px 0;
   float: left;
-  background-color: #4892F7;
+  background-color: #4892f7;
   background: url(../assets/images/btn1.png) no-repeat 0 0;
-  border: 1px solid #306FD9;
+  border: 1px solid #306fd9;
   border-radius: 2px;
   font-family: calibri, monospace;
   font-size: 14px;
@@ -189,10 +208,18 @@ html {
   float: right;
   font-size: 14px;
   line-height: 13px;
-  background: linear-gradient(to bottom, #1290E9 0%, #19B9F3 9%, #1290E9 18%, #1290E9 92%, #1941A5 100%) center/cover no-repeat;
-  box-shadow: 0px 5px 10px #14A5F0 inset, 0px 5px 10px #333333;
+  background: linear-gradient(
+      to bottom,
+      #1290e9 0%,
+      #19b9f3 9%,
+      #1290e9 18%,
+      #1290e9 92%,
+      #1941a5 100%
+    )
+    center/cover no-repeat;
+  box-shadow: 0px 5px 10px #14a5f0 inset, 0px 5px 10px #333333;
   padding: 9px 15px 9px 25px;
-  border-left: 1px solid #092E51;
+  border-left: 1px solid #092e51;
   text-shadow: 1px 1px 2px #222;
   cursor: pointer;
   text-transform: uppercase;
@@ -220,32 +247,32 @@ html {
   height: 100vh;
 }
 
-@media (max-width:825px) {
+@media (max-width: 825px) {
   .taskbar .open-tab {
     width: 100px;
   }
 }
 
-@media (max-width:625px) {
+@media (max-width: 625px) {
   .taskbar .open-tab {
     color: transparent;
     width: 70px;
   }
 }
 
-@media (max-width:505px) {
+@media (max-width: 505px) {
   .taskbar .open-tab {
     width: 50px;
   }
 }
 
-@media (max-width:360px) {
+@media (max-width: 360px) {
   .taskbar .open-tab {
     width: 35px;
   }
 }
 
-@media (max-width:345px) {
+@media (max-width: 345px) {
   .taskbar .start-button {
     display: none;
   }
