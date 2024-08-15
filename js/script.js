@@ -1,5 +1,5 @@
 // Move windows
-let mouseMove = false;
+let mouseMove = true;
 const code = 77;
 
 onkeydown = (e) => {
