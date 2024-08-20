@@ -228,8 +228,8 @@ function doubleClick(e, link) {
 // Minimum screen width alert
 const width = window.innerWidth > 0 ? window.innerWidth : screen.width;
 
-if (width < 399) {
+if (width < 805) {
   window.alert(
-    "Warning:\nThis website runs best on devices that have a minimum screen width of 399px. This might not work too well for your device.\n\nIt is recommended you open this website on your computer for full functionality."
+    "Warning:\nThis website is optimized for devices with a minimum screen width of 805px and may not perform optimally on your current device.\n\nFor the best experience and full functionality, we recommend accessing this site on a computer."
   );
 }
