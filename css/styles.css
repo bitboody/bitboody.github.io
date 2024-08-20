@@ -30,6 +30,7 @@ html {
 .icon {
   color: white;
   width: 80px;
+  height: 80px;
   cursor: pointer;
   margin: 8px 0;
   padding: 2px;
@@ -102,7 +103,7 @@ html {
   transform: translate(-63%, -76%);
 }
 
-#browser-container {
+#browser-container, #guestbook-container {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -110,12 +111,12 @@ html {
   transform: translate(-50%, -50%);
 }
 
-#browser-container .window-body {
+#browser-container .window-body, #guestbook-container .window-body {
   margin: 0;
   padding: 0;
 }
 
-#browser-container .window-body {
+#browser-container .window-body,  #guestbook-container .window-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
