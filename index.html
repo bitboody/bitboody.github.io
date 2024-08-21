@@ -1,192 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/xp.css">
-    <link rel="icon" type="image/x-icon" href="assets/images/computer.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/computer.png" />
     <title>Boody's Computer</title>
-</head>
+  </head>
 
-<body>
-    <div class="icon my-computer" id="my-computer" onclick="doubleClick('my-computer', 'https://github.com/bitboody')">
-        <img src="./assets/images/computer.png" alt="computer icon">
-        <div class="icon-name">My Computer</div>
+  <body>
+    <div
+      class="icon my-computer"
+      id="my-computer"
+      onclick="doubleClick('my-computer', 'https://github.com/bitboody')"
+    >
+      <img src="./assets/images/computer.png" alt="computer icon" />
+      <div class="icon-name">My Computer</div>
     </div>
 
-    <div class="icon ie" id="browser" onclick="doubleClick('browser', 'toggle')">
-        <img src="./assets/images/ie.png" alt="internet explorer icon">
-        <div class="icon-name">Internet Explorer</div>
+    <div
+      class="icon ie"
+      id="browser"
+      onclick="doubleClick('browser', 'toggle')"
+    >
+      <img src="./assets/images/ie.png" alt="internet explorer icon" />
+      <div class="icon-name">Internet Explorer</div>
     </div>
 
-    <div class="icon ie" id="guestbook" onclick="doubleClick('guestbook', 'toggle')">
-        <img src="./assets/images/guestbook.png" alt="guestbook">
-        <div class="icon-name">Guestbook</div>
+    <div
+      class="icon ie"
+      id="guestbook"
+      onclick="doubleClick('guestbook', 'toggle')"
+    >
+      <img src="./assets/images/guestbook.png" alt="guestbook" />
+      <div class="icon-name">Guestbook</div>
     </div>
 
     <div class="move" id="network-container">
-        <div class="window" id="network-window" style="width: 355px; height: 270px;">
-            <div class="title-bar">
-                <div class="title-bar-text"><img src="./assets/images/network.png" width="15px"> Network</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow('network-window')"></button>
-                    <button aria-label="Close" onclick="toggleWindow('network-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p id="about">About me:</p>
-                <p>Hello, I'm Abdelrhman, but you can call me Boody. I'm currently studying Electrical and Computer Engineering at <a href="https://www.mti.edu.eg/" target="_blank">MTI University</a> in Cairo, Egypt. I'm into low-level programming and tinkering with hardware.</p>
-
-                <br>
-
-                <div>
-                    <p id="activity-div-title">Last done on Discord:</p>
-                    <img id="activity-img" width="100px">
-                    <p id="activity-title"></p>
-                    <p id="activity-state"></p>
-                </div>
-
-            </div>
+      <div class="window" id="network-window" style="width: 355px">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="./assets/images/network.png" width="15px" alt="network" />
+            Network
+          </div>
+          <div class="title-bar-controls">
+            <button
+              aria-label="Minimize"
+              onclick="toggleWindow('network-window')"
+            ></button>
+            <button
+              aria-label="Close"
+              onclick="toggleWindow('network-window')"
+            ></button>
+          </div>
         </div>
+        <div class="window-body">
+          <p id="about">About me:</p>
+          <p>
+            Hello, I'm Abdelrhman, but you can call me Boody. I'm currently
+            studying Electrical and Computer Engineering at
+            <a href="https://www.mti.edu.eg/" target="_blank">MTI University</a>
+            in Cairo, Egypt. I'm into low-level programming and tinkering with
+            hardware.
+          </p>
+          <br />
+          <p>
+            Boody is feeling:<a href="https://www.imood.com/users/Boody"
+              ><img
+                src="https://moods.imood.com/display/uname-Boody/trans-1/imood.gif"
+                alt="The current mood of Boody at www.imood.com"
+                border="0"
+                style="vertical-align: middle"
+                target="_blank"
+            /></a>
+          </p>
+          <br />
+
+          <div id="activity-div">
+            <p id="activity-div-title">Last done on Discord:</p>
+            <img id="activity-img" width="100px" alt="discord activity" />
+            <p id="activity-title"></p>
+            <p id="activity-state"></p>
+          </div>
+
+          <br />
+
+          <div class="buttons">
+            <img
+              width="88px"
+              height="31"
+              src="./assets/images/buttons/linux.png"
+              alt="linux button"
+            />
+            <img
+              width="88px"
+              height="31"
+              src="./assets/images/buttons/its_good_to_share.gif"
+              alt="share button"
+            />
+            <img
+              width="88px"
+              height="31"
+              src="./assets/images/buttons/sign_guestbook.gif"
+              alt="sign guestbook button"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="move" id="cmd-container">
-        <div class="window" id="cmd-window">
-            <div class="title-bar">
-                <div class="title-bar-text"><img src="./assets/images/cmd.png" width="15px"> Command Prompt</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow('cmd-window')"></button>
-                    <button aria-label="Close" onclick="toggleWindow('cmd-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <pre>Microsoft&#10094;R&#10095; Windows DOS 
+      <div class="window" id="cmd-window">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="./assets/images/cmd.png" width="15px" alt="cmd" /> Command
+            Prompt
+          </div>
+          <div class="title-bar-controls">
+            <button
+              aria-label="Minimize"
+              onclick="toggleWindow('cmd-window')"
+            ></button>
+            <button
+              aria-label="Close"
+              onclick="toggleWindow('cmd-window')"
+            ></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <pre>Microsoft&#10094;R&#10095; Windows DOS 
 &#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
       <br>C:&#92;WINDOWS&#92;SYSTEM32> help
 - Press "ctrl + m" to toggle window movement
 - Go to My Computer for my Github
     </pre>
-            </div>
         </div>
+      </div>
     </div>
 
     <div class="move" id="projects-container">
-        <div class="window" id="projects-window" style="width: 400px">
-            <div class="title-bar">
-                <div class="title-bar-text"><img src="./assets/images/documents.png" width="15px"> Some of the projects
-                    I've worked on</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow('projects-window')"></button>
-                    <button aria-label="Close" onclick="toggleWindow('projects-window')"></button>
-                </div>
-            </div>
-            <div class="window-body" id="projects">
-                <menu role="tablist">
-                    <button aria-selected="true" id="btn1" onclick="toggleTabs(1)">Botnet</button>
-                    <button id="btn2" onclick="toggleTabs(2)">Pomodoro</button>
-                    <button id="btn3" onclick="toggleTabs(3)">Discord bot</button>
-                </menu>
-                <article role="tabpanel" style="display: block;" id="project-1">
-                    <fieldset>
-                        <legend>Necromancer</legend>
-                        <div class="iframely-embed">
-                            <div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;"><a
-                                    href="https://github.com/bitboody/Necromancer"
-                                    data-iframely-url="//iframely.net/ugNNSMC"></a></div>
-                        </div>
-                        <script async src="//iframely.net/embed.js"></script>
-                    </fieldset>
-                </article>
-
-                <article role="tabpanel" style="display: none;" id="project-2">
-                    <fieldset>
-                        <legend>Pomody</legend>
-                        <div class="iframely-embed">
-                            <div class="iframely-embed">
-                                <div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;"><a
-                                        href="https://github.com/bitboody/pomodoro"
-                                        data-iframely-url="//iframely.net/qCe2sVW"></a></div>
-                            </div>
-                            <script async src="//iframely.net/embed.js"></script>
-                    </fieldset>
-                </article>
-
-                <article role="tabpanel" style="display: none;" id="project-3">
-                    <fieldset>
-                        <legend>Szeebe</legend>
-                        <div class="iframely-embed">
-                            <div class="iframely-responsive" style="padding-bottom: 50%; padding-top: 120px;"><a
-                                    href="https://github.com/TRENATTI/Szeebe"
-                                    data-iframely-url="//iframely.net/QarcXGB"></a></div>
-                        </div>
-                        <script async src="//iframely.net/embed.js"></script>
-                    </fieldset>
-                </article>
-            </div>
+      <div class="window" id="projects-window" style="width: 400px">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img
+              src="./assets/images/documents.png"
+              width="15px"
+              alt="documents"
+            />
+            Some of the projects I've worked on
+          </div>
+          <div class="title-bar-controls">
+            <button
+              aria-label="Minimize"
+              onclick="toggleWindow('projects-window')"
+            ></button>
+            <button
+              aria-label="Close"
+              onclick="toggleWindow('projects-window')"
+            ></button>
+          </div>
         </div>
+        <div class="window-body" id="projects">
+          <menu role="tablist">
+            <button aria-selected="true" id="btn1" onclick="toggleTabs(1)">
+              Botnet
+            </button>
+            <button id="btn2" onclick="toggleTabs(2)">Pomodoro</button>
+            <button id="btn3" onclick="toggleTabs(3)">Discord bot</button>
+          </menu>
+          <article role="tabpanel" style="display: block" id="project-1">
+            <fieldset>
+              <legend>Necromancer</legend>
+              <div class="iframely-embed">
+                <div
+                  class="iframely-responsive"
+                  style="padding-bottom: 50%; padding-top: 120px"
+                >
+                  <a
+                    href="https://github.com/bitboody/Necromancer"
+                    data-iframely-url="//iframely.net/ugNNSMC"
+                  ></a>
+                </div>
+              </div>
+              <script async src="//iframely.net/embed.js"></script>
+            </fieldset>
+          </article>
+
+          <article role="tabpanel" style="display: none" id="project-2">
+            <fieldset>
+              <legend>Pomody</legend>
+              <div class="iframely-embed">
+                <div
+                  class="iframely-responsive"
+                  style="padding-bottom: 50%; padding-top: 120px"
+                >
+                  <a
+                    href="https://github.com/bitboody/pomodoro"
+                    data-iframely-url="//iframely.net/qCe2sVW"
+                  ></a>
+                </div>
+              </div>
+              <script async src="//iframely.net/embed.js"></script>
+            </fieldset>
+          </article>
+
+          <article role="tabpanel" style="display: none" id="project-3">
+            <fieldset>
+              <legend>Szeebe</legend>
+              <div class="iframely-embed">
+                <div
+                  class="iframely-responsive"
+                  style="padding-bottom: 50%; padding-top: 120px"
+                >
+                  <a
+                    href="https://github.com/TRENATTI/Szeebe"
+                    data-iframely-url="//iframely.net/QarcXGB"
+                  ></a>
+                </div>
+              </div>
+              <script async src="//iframely.net/embed.js"></script>
+            </fieldset>
+          </article>
+        </div>
+      </div>
     </div>
 
     <div class="move" id="browser-container">
-        <div class="window" id="browser-window" style="width: 806px; height: 624px; display: none;">
-            <div class="title-bar">
-                <div class="title-bar-text"><img src="./assets/images/ie.png" width="15px"> Internet Explorer</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow('browser-window')"></button>
-                    <button aria-label="Maximize" onclick="maximizeWindow('browser-window')"></button>
-                    <button aria-label="Close" onclick="toggleWindow('browser-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <object id="browser-body" type="text/html" data="https://oldgoogle.neocities.org/2009/" width="800px"
-                    height="600px">
-                </object>
-            </div>
+      <div
+        class="window"
+        id="browser-window"
+        style="width: 806px; height: 624px; display: none"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img src="./assets/images/ie.png" width="15px" alt="ie" /> Internet
+            Explorer
+          </div>
+          <div class="title-bar-controls">
+            <button
+              aria-label="Minimize"
+              onclick="toggleWindow('browser-window')"
+            ></button>
+            <button
+              aria-label="Maximize"
+              onclick="maximizeWindow('browser-window')"
+            ></button>
+            <button
+              aria-label="Close"
+              onclick="toggleWindow('browser-window')"
+            ></button>
+          </div>
         </div>
+        <div class="window-body">
+          <object
+            id="browser-body"
+            type="text/html"
+            data="https://oldgoogle.neocities.org/2009/"
+            width="800px"
+            height="600px"
+          ></object>
+        </div>
+      </div>
     </div>
 
     <div class="move" id="guestbook-container">
-        <div class="window" id="guestbook-window" style="width: 806px; height: 624px; display: none;">
-            <div class="title-bar">
-                <div class="title-bar-text"><img src="./assets/images/guestbook.png" width="15px"> Guestbook</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Minimize" onclick="toggleWindow('guestbook-window')"></button>
-                    <button aria-label="Close" onclick="toggleWindow('guestbook-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <object id="browser-body" type="text/html" data="https://theboody.atabook.org" width="800px"
-                    height="600px">
-                </object>
-            </div>
+      <div
+        class="window"
+        id="guestbook-window"
+        style="width: 806px; height: 624px; display: none"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text">
+            <img
+              src="./assets/images/guestbook.png"
+              width="15px"
+              alt="guestbook"
+            />
+            Guestbook
+          </div>
+          <div class="title-bar-controls">
+            <button
+              aria-label="Minimize"
+              onclick="toggleWindow('guestbook-window')"
+            ></button>
+            <button
+              aria-label="Close"
+              onclick="toggleWindow('guestbook-window')"
+            ></button>
+          </div>
         </div>
+        <div class="window-body">
+          <object
+            id="browser-body"
+            type="text/html"
+            data="https://theboody.atabook.org"
+            width="800px"
+            height="600px"
+          ></object>
+        </div>
+      </div>
     </div>
 
     <div class="taskbar">
-        <div class="start-button"><img src="./assets/images/logo.png"> start</div>
-        <div class="opened-tabs">
-            <div class="open-tab" id="network-button" onclick="toggleWindow('network-window')"><img
-                    src="./assets/images/network.png"> Network</div>
-            <div class="open-tab" id="projects-button" onclick="toggleWindow('projects-window')"><img
-                    src="./assets/images/documents.png"> Projects</div>
-            <div class="open-tab" id="cmd-button" onclick="toggleWindow('cmd-window')"><img
-                    src="./assets/images/cmd.png">
-                CMD</div>
-            <div class="open-tab" id="browser-button" onclick="toggleWindow('browser-window')"><img
-                    src="./assets/images/ie.png">
-                Internet Explorer</div>
-            <div class="open-tab" id="browser-button" onclick="toggleWindow('guestbook-window')"><img
-                    src="./assets/images/guestbook.png">
-                Guestbook</div>
+      <div class="start-button">
+        <img src="./assets/images/logo.png" alt="start button" /> start
+      </div>
+      <div class="opened-tabs">
+        <div
+          class="open-tab"
+          id="network-button"
+          onclick="toggleWindow('network-window')"
+        >
+          <img src="./assets/images/network.png" alt="network" /> Network
         </div>
-        <div class="time" id="clock">00:00 PM</div>
+        <div
+          class="open-tab"
+          id="projects-button"
+          onclick="toggleWindow('projects-window')"
+        >
+          <img src="./assets/images/documents.png" alt="documents" /> Projects
+        </div>
+        <div
+          class="open-tab"
+          id="cmd-button"
+          onclick="toggleWindow('cmd-window')"
+        >
+          <img src="./assets/images/cmd.png" alt="cmd" /> CMD
+        </div>
+        <div
+          class="open-tab"
+          id="browser-button"
+          onclick="toggleWindow('browser-window')"
+        >
+          <img src="./assets/images/ie.png" alt="ie" /> Internet Explorer
+        </div>
+        <div
+          class="open-tab"
+          id="guestbook-button"
+          onclick="toggleWindow('guestbook-window')"
+        >
+          <img src="./assets/images/guestbook.png" alt="guestbook" /> Guestbook
+        </div>
+      </div>
+      <div class="time" id="clock">00:00 PM</div>
     </div>
-
-</body>
-<script src="./js/script.js"></script>
-<script type="module" src="./js/firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"></script>
-
+  </body>
+  <script src="./js/script.js"></script>
+  <script type="module" src="./js/firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"></script>
 </html>

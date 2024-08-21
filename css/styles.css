@@ -75,13 +75,13 @@ html {
   padding: 0 20px;
 }
 
-#network-container .window-body img {
+#network-container .window-body #activity-div img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-#network-container .window-body div {
+#network-container .window-body #activity-div {
   font-weight: 600;
   margin: auto;
   text-align: center;
@@ -91,8 +91,15 @@ html {
   font-weight: 700;
 }
 
-#network-container .window-body div img {
+#network-container .window-body #activity-div img {
   padding: 5px 0 5px 0;
+}
+
+#network-container .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 #projects-container {
@@ -103,7 +110,8 @@ html {
   transform: translate(-63%, -76%);
 }
 
-#browser-container, #guestbook-container {
+#browser-container,
+#guestbook-container {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -111,12 +119,14 @@ html {
   transform: translate(-50%, -50%);
 }
 
-#browser-container .window-body, #guestbook-container .window-body {
+#browser-container .window-body,
+#guestbook-container .window-body {
   margin: 0;
   padding: 0;
 }
 
-#browser-container .window-body,  #guestbook-container .window-body {
+#browser-container .window-body,
+#guestbook-container .window-body {
   display: flex;
   flex-direction: column;
   justify-content: center;
