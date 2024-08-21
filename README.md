@@ -6,7 +6,7 @@ Credit for most of the taskbar code goes to: <a href="https://github.com/faisalA
 
 Preview:
 <br>
-<a href="https://ibb.co/JxZRq5f"><img src="https://i.ibb.co/B4kVGqX/image.png" alt="image" border="0"></a>
+<img src="https://i.ibb.co/RzP4cyS/firefox-GC60-D0vj-K8.jpg"></a>
 
 TODO:
 - [X] Moving windows
