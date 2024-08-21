@@ -13,4 +13,4 @@ TODO:
 - [X] Icons on windows
 - [X] Double click icons
 - [X] Web browser
-- [ ] Guestbook
+- [X] Guestbook
