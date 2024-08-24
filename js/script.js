@@ -105,8 +105,18 @@ setInterval(() => {
 }, 1000);
 
 // Toggling windows
-function toggleWindow(e) {
-  w = document.getElementById(e);
+function toggleWindow(e, mode) {
+  const w = document.getElementById(e);
+  const wButton = document.getElementById(
+    e.split("-").reverse().pop() + "-button"
+  );
+
+  console.log(e.split("-").reverse().pop() + "-button");
+  if (mode == "close") {
+    wButton.style.display = "none";
+  } else {
+    wButton.style.display = "block";
+  }
 
   if (w.style.display == "none") {
     w.style.display = "block";

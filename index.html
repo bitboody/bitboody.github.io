@@ -20,6 +20,33 @@
     </div>
 
     <div
+      class="icon network"
+      id="network"
+      onclick="doubleClick('network', 'toggle')"
+    >
+      <img src="./assets/images/network.png" alt="Network icon" />
+      <div class="icon-name">Network</div>
+    </div>
+
+    <div
+      class="icon projects"
+      id="projects"
+      onclick="doubleClick('projects', 'toggle')"
+    >
+      <img src="./assets/images/documents.png" alt="Documents icon" />
+      <div class="icon-name">Projects</div>
+    </div>
+
+    <div
+      class="icon cmd"
+      id="cmd"
+      onclick="doubleClick('cmd', 'toggle')"
+    >
+      <img src="./assets/images/cmd.png" alt="cmd icon" />
+      <div class="icon-name">cmd</div>
+    </div>
+
+    <div
       class="icon ie"
       id="browser"
       onclick="doubleClick('browser', 'toggle')"
@@ -56,7 +83,7 @@
             ></button>
             <button
               aria-label="Close"
-              onclick="toggleWindow('network-window')"
+              onclick="toggleWindow('network-window', 'close')"
             ></button>
           </div>
         </div>
@@ -155,7 +182,7 @@
             ></button>
             <button
               aria-label="Close"
-              onclick="toggleWindow('cmd-window')"
+              onclick="toggleWindow('cmd-window', 'close')"
             ></button>
           </div>
         </div>
@@ -189,7 +216,7 @@
             ></button>
             <button
               aria-label="Close"
-              onclick="toggleWindow('projects-window')"
+              onclick="toggleWindow('projects-window', 'close')"
             ></button>
           </div>
         </div>
@@ -285,7 +312,7 @@
             ></button>
             <button
               aria-label="Close"
-              onclick="toggleWindow('browser-window')"
+              onclick="toggleWindow('browser-window', `close`)"
             ></button>
           </div>
         </div>
@@ -324,7 +351,7 @@
             ></button>
             <button
               aria-label="Close"
-              onclick="toggleWindow('guestbook-window')"
+              onclick="toggleWindow('guestbook-window', 'close')"
             ></button>
           </div>
         </div>

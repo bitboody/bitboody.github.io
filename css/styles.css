@@ -64,6 +64,12 @@ html {
   -webkit-tap-highlight-color: var(--drop-shadow-color);
 }
 
+.icon img {
+  width: 48px; /* Adjust this value as needed */
+  height: 48px; /* Adjust this value as needed */
+  margin-bottom: 5px; /* Space between image and text */
+}
+
 /* Positioning Classes */
 .move {
   position: absolute;
