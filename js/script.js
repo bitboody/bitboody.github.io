@@ -55,43 +55,14 @@ function dragElement(elmnt) {
 
 // Change tabs
 function toggleTabs(project) {
-  const btn1 = document.getElementById("projects").querySelector("#btn1");
-  const btn2 = document.getElementById("projects").querySelector("#btn2");
-  const btn3 = document.getElementById("projects").querySelector("#btn3");
+  const buttons = document.querySelectorAll("#projects menu button");
+  const projects = document.querySelectorAll("#projects article");
 
-  const firstProject = document.getElementById("project-1");
-  const secondProject = document.getElementById("project-2");
-  const thirdProject = document.getElementById("project-3");
-
-  if (project == 1) {
-    btn1.setAttribute("aria-selected", "true");
-    btn2.setAttribute("aria-selected", "false");
-    btn3.setAttribute("aria-selected", "false");
-
-    firstProject.style.display = "block";
-    secondProject.style.display = "none";
-    thirdProject.style.display = "none";
-  }
-
-  if (project == 2) {
-    btn1.setAttribute("aria-selected", "false");
-    btn2.setAttribute("aria-selected", "true");
-    btn3.setAttribute("aria-selected", "false");
-
-    firstProject.style.display = "none";
-    secondProject.style.display = "block";
-    thirdProject.style.display = "none";
-  }
-
-  if (project == 3) {
-    btn1.setAttribute("aria-selected", "false");
-    btn2.setAttribute("aria-selected", "false");
-    btn3.setAttribute("aria-selected", "true");
-
-    firstProject.style.display = "none";
-    secondProject.style.display = "none";
-    thirdProject.style.display = "block";
-  }
+  // Iterate over buttons and projects to toggle visibility
+  buttons.forEach((button, index) => {
+    button.setAttribute("aria-selected", index == project);
+    projects[index].style.display = index == project ? "block" : "none";
+  });
 }
 
 // Dynamic clock
