@@ -20,10 +20,14 @@ function dragElement(elmnt) {
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
-  elmnt.onmousedown = dragMouseDown;
+  // only the title bar acts as the drag handle, like Windows XP
+  const dragHandle = elmnt.querySelector(".title-bar") || elmnt;
+  dragHandle.onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;
+    // don't start dragging when interacting with title bar buttons
+    if (e.target.closest(".title-bar-controls")) return;
     e.preventDefault();
     // get the mouse cursor position at startup:
     pos3 = e.clientX;
