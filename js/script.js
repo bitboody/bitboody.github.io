@@ -96,9 +96,125 @@ function toggleWindow(e, mode) {
   if (w.style.display == "none") {
     w.style.display = "block";
     w.className += " active";
+    if (e == "cmd-window") setTimeout(() => cmdInput.focus(), 0);
   } else {
     w.style.display = "none";
   }
+}
+
+// CMD Terminal
+const cmdBody = document.getElementById("cmd-body");
+const cmdOutput = document.getElementById("cmd-output");
+const cmdInput = document.getElementById("cmd-input");
+const cmdPrompt = "C:\\WINDOWS\\SYSTEM32>";
+
+const cmdHistoryLog = [];
+let cmdHistoryIndex = 0;
+
+const cmdCommands = {
+  help: () =>
+    "Available commands:\n" +
+    "  help           - show this help message\n" +
+    "  cls / clear    - clear the screen\n" +
+    "  date           - display the current date\n" +
+    "  time           - display the current time\n" +
+    "  ver            - display DOS version\n" +
+    "  whoami         - display current user\n" +
+    "  echo [text]    - display text\n" +
+    "  dir            - list directory contents\n" +
+    "  github         - open my Github in a new tab\n" +
+    "  start [app]    - open network, projects, browser or guestbook window\n" +
+    "  exit           - close this window\n\n" +
+    "Press Ctrl+L to clear the screen, Up/Down for command history.",
+  date: () => new Date().toLocaleDateString(),
+  time: () => new Date().toLocaleTimeString(),
+  ver: () => "Microsoft Windows DOS [Version 4.10.1998]",
+  whoami: () => "boody",
+  echo: (args) => args.join(" "),
+  dir: () =>
+    " Volume in drive C has no label.\n" +
+    " Directory of C:\\WINDOWS\\SYSTEM32\n\n" +
+    "resumé.pdf\nprojects\nnetwork.exe\nguestbook.exe",
+  github: () => {
+    window.open("https://github.com/bitboody");
+    return "Opening https://github.com/bitboody ...";
+  },
+  start: (args) => {
+    const apps = {
+      network: "network-window",
+      projects: "projects-window",
+      browser: "browser-window",
+      ie: "browser-window",
+      guestbook: "guestbook-window",
+    };
+    const target = apps[(args[0] || "").toLowerCase()];
+    if (!target)
+      return `'${args[0] || ""}' is not recognized. Try: network, projects, browser, guestbook`;
+    toggleWindow(target);
+    return `Starting ${args[0]}...`;
+  },
+  exit: () => {
+    toggleWindow("cmd-window", "close");
+    return "";
+  },
+};
+
+function runCmdCommand(raw) {
+  const trimmed = raw.trim();
+  cmdOutput.textContent += `${cmdPrompt}${raw}\n`;
+
+  if (!trimmed) return;
+
+  cmdHistoryLog.push(trimmed);
+  cmdHistoryIndex = cmdHistoryLog.length;
+
+  const [cmd, ...args] = trimmed.split(/\s+/);
+  const key = cmd.toLowerCase();
+
+  if (key == "cls" || key == "clear") {
+    cmdOutput.textContent = "";
+    return;
+  }
+
+  const handler = cmdCommands[key];
+  if (!handler) {
+    cmdOutput.textContent += `'${cmd}' is not recognized as an internal or external command.\n`;
+    return;
+  }
+
+  const result = handler(args);
+  if (result) cmdOutput.textContent += `${result}\n`;
+}
+
+if (cmdInput) {
+  cmdInput.addEventListener("keydown", (e) => {
+    if (e.key == "Enter") {
+      e.preventDefault();
+      runCmdCommand(cmdInput.value);
+      cmdInput.value = "";
+      cmdBody.scrollTop = cmdBody.scrollHeight;
+    } else if (e.ctrlKey && e.key.toLowerCase() == "l") {
+      e.preventDefault();
+      cmdOutput.textContent = "";
+    } else if (e.key == "ArrowUp") {
+      e.preventDefault();
+      if (cmdHistoryIndex > 0) {
+        cmdHistoryIndex--;
+        cmdInput.value = cmdHistoryLog[cmdHistoryIndex] || "";
+      }
+    } else if (e.key == "ArrowDown") {
+      e.preventDefault();
+      if (cmdHistoryIndex < cmdHistoryLog.length - 1) {
+        cmdHistoryIndex++;
+        cmdInput.value = cmdHistoryLog[cmdHistoryIndex] || "";
+      } else {
+        cmdHistoryIndex = cmdHistoryLog.length;
+        cmdInput.value = "";
+      }
+    }
+  });
+
+  cmdBody.addEventListener("click", () => cmdInput.focus());
 }
 
 // Maximizing windows
