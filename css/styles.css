@@ -199,6 +199,7 @@ html {
 
 /* Taskbar Styles */
 .taskbar {
+  font-family: "Trebuchet MS", Tahoma, sans-serif;
   background-color: var(--primary-blue);
   background: linear-gradient(
     to bottom,
@@ -220,13 +221,15 @@ html {
   color: var(--white-color);
   height: 100%;
   float: left;
+  min-width: 110px;
+  font-family: "Trebuchet MS", Tahoma, sans-serif;
   font-size: 22px;
   line-height: 22px;
   font-weight: bold;
   font-style: italic;
   background: radial-gradient(circle, var(--button-bg-start) 0%, var(--button-bg-end) 100%) center/cover no-repeat;
   box-shadow: 0px 5px 10px #79ce71 inset, 4px 0 8px var(--secondary-blue);
-  padding: 2px 25px 6px 10px;
+  padding: 2px 32px 6px 14px;
   text-shadow: 1px 1px 3px var(--text-shadow-color);
   border-radius: 0px 8px 8px 0px;
   margin-right: 16px;
@@ -237,6 +240,173 @@ html {
   height: 20px;
   filter: drop-shadow(1px 1px 1px var(--text-shadow-color));
   transform: translateY(4px);
+}
+
+.start-button.active {
+  box-shadow: 0px 5px 10px #4d8c47 inset, 4px 0 8px var(--primary-dark-blue) inset;
+}
+
+/* Start Menu */
+.start-menu {
+  display: none;
+  position: fixed;
+  bottom: 32px;
+  left: 3px;
+  width: 420px;
+  background: var(--white-color);
+  border: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4), inset -1px -1px #00138c,
+    inset 1px 1px #0831d9, inset -2px -2px #001ea0, inset 2px 2px #166aee,
+    inset -3px -3px #003bda, inset 3px 3px #0855dd;
+  z-index: 1001;
+  font-family: Tahoma, "Trebuchet MS", sans-serif;
+  font-size: 13px;
+}
+
+.start-menu.open {
+  display: block;
+}
+
+.start-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #005bff 95%, #003dd7 100%);
+  color: var(--white-color);
+  font-family: "Trebuchet MS", Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px var(--text-shadow-color);
+}
+
+.start-menu-header img {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border: 2px solid var(--white-color);
+  border-radius: 4px;
+  background: var(--white-color);
+}
+
+.start-menu-body {
+  display: flex;
+  min-height: 360px;
+}
+
+.start-menu-left {
+  flex: 1 1 58%;
+  background: var(--white-color);
+  padding: 10px 0;
+}
+
+.start-menu-right {
+  flex: 1 1 42%;
+  background: #a6caf0;
+  padding: 10px 0;
+  border-left: 1px solid #8ab3e0;
+}
+
+.start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.start-menu-item:hover {
+  background: var(--highlight-color);
+  color: var(--white-color);
+}
+
+.start-menu-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.start-menu-item-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.start-menu-item-text span {
+  font-size: 11px;
+  font-weight: normal;
+  color: #555;
+}
+
+.start-menu-item:hover .start-menu-item-text span {
+  color: #e0e0e0;
+}
+
+.start-menu-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 10px;
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #005bff 95%, #003dd7 100%);
+}
+
+.start-menu-power-btn {
+  background: transparent;
+  border: none;
+  color: var(--white-color);
+  font-family: "Trebuchet MS", Tahoma, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.start-menu-power-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Shutdown dialog and screen */
+#shutdown-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+}
+
+.shutdown-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.shutdown-cancel {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 0;
+}
+
+#shutdown-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  z-index: 3000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+#shutdown-screen.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .opened-tabs {

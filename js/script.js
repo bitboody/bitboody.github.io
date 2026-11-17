@@ -336,3 +336,77 @@ if (width < 805) {
     "Warning:\nThis website is optimized for devices with a minimum screen width of 805px and may not perform optimally on your current device.\n\nFor the best experience and full functionality, we recommend accessing this site on a computer."
   );
 }
+
+// Start Menu
+const startButton = document.getElementById("start-button");
+const startMenu = document.getElementById("start-menu");
+
+function toggleStartMenu() {
+  const isOpen = startMenu.classList.toggle("open");
+  startButton.classList.toggle("active", isOpen);
+}
+
+function closeStartMenu() {
+  startMenu.classList.remove("open");
+  startButton.classList.remove("active");
+}
+
+document.addEventListener("click", (e) => {
+  if (
+    startMenu.classList.contains("open") &&
+    !startMenu.contains(e.target) &&
+    !startButton.contains(e.target)
+  ) {
+    closeStartMenu();
+  }
+});
+
+function startMenuAction(target) {
+  closeStartMenu();
+  if (target == "github") {
+    window.open("https://github.com/bitboody");
+  } else {
+    toggleWindow(target);
+  }
+}
+
+const appWindows = [
+  "network-window",
+  "projects-window",
+  "cmd-window",
+  "browser-window",
+  "guestbook-window",
+];
+
+function logOff() {
+  closeStartMenu();
+  appWindows.forEach((id) => {
+    const w = document.getElementById(id);
+    if (w.style.display != "none") toggleWindow(id, "close");
+  });
+}
+
+// Shutdown dialog and screen
+const shutdownContainer = document.getElementById("shutdown-container");
+const shutdownScreen = document.getElementById("shutdown-screen");
+
+function openShutdownDialog() {
+  closeStartMenu();
+  shutdownContainer.style.display = "block";
+}
+
+function closeShutdownDialog() {
+  shutdownContainer.style.display = "none";
+}
+
+function shutdownAction(action) {
+  closeShutdownDialog();
+  if (action == "restart") {
+    location.reload();
+  } else if (action == "turnoff") {
+    shutdownScreen.classList.add("active");
+  }
+}
+
+shutdownScreen.addEventListener("click", () => location.reload());
+

@@ -392,8 +392,75 @@ Type 'help' for a list of commands.
       </div>
     </div>
 
+    <div class="start-menu" id="start-menu">
+      <div class="start-menu-header">
+        <img src="./assets/images/computer.avif" alt="user" />
+        <span>Boody</span>
+      </div>
+      <div class="start-menu-body">
+        <div class="start-menu-left">
+          <div class="start-menu-item" onclick="startMenuAction('browser-window')">
+            <img src="./assets/images/ie.avif" alt="Internet Explorer" />
+            <div class="start-menu-item-text">
+              <strong>Internet Explorer</strong>
+              <span>Browse the web</span>
+            </div>
+          </div>
+          <div class="start-menu-item" onclick="startMenuAction('guestbook-window')">
+            <img src="./assets/images/guestbook.avif" alt="Guestbook" />
+            <div class="start-menu-item-text">
+              <strong>Guestbook</strong>
+              <span>Sign my guestbook</span>
+            </div>
+          </div>
+          <div class="start-menu-item" onclick="startMenuAction('cmd-window')">
+            <img src="./assets/images/cmd.avif" alt="Command Prompt" />
+            <div class="start-menu-item-text">
+              <strong>Command Prompt</strong>
+              <span>Run DOS commands</span>
+            </div>
+          </div>
+        </div>
+        <div class="start-menu-right">
+          <div class="start-menu-item" onclick="startMenuAction('github')">
+            <img src="./assets/images/computer.avif" alt="My Computer" /> My Computer
+          </div>
+          <div class="start-menu-item" onclick="startMenuAction('network-window')">
+            <img src="./assets/images/network.avif" alt="Network" /> Network
+          </div>
+          <div class="start-menu-item" onclick="startMenuAction('projects-window')">
+            <img src="./assets/images/documents.avif" alt="Projects" /> Projects
+          </div>
+        </div>
+      </div>
+      <div class="start-menu-footer">
+        <button class="start-menu-power-btn" onclick="logOff()">Log Off</button>
+        <button class="start-menu-power-btn" onclick="openShutdownDialog()">
+          Turn Off Computer
+        </button>
+      </div>
+    </div>
+
+    <div class="move" id="shutdown-container" style="display: none">
+      <div class="window" id="shutdown-window" style="width: 320px">
+        <div class="title-bar">
+          <div class="title-bar-text">Turn off computer</div>
+        </div>
+        <div class="window-body shutdown-options">
+          <button onclick="shutdownAction('standby')">Stand By</button>
+          <button onclick="shutdownAction('turnoff')">Turn Off</button>
+          <button onclick="shutdownAction('restart')">Restart</button>
+        </div>
+        <div class="window-body shutdown-cancel">
+          <button onclick="closeShutdownDialog()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="shutdown-screen">It's now safe to turn off your computer.</div>
+
     <div class="taskbar">
-      <div class="start-button">
+      <div class="start-button" id="start-button" onclick="toggleStartMenu()">
         <img src="./assets/images/logo.avif" alt="start button" /> start
       </div>
       <div class="opened-tabs">
